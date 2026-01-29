@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const apiBaseUrl = import.meta.env.VITE_API_URL || "https://electrohub-backend-ejdt.onrender.com";
+
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: apiBaseUrl,
 });
 
 // Interceptor para agregar el token automáticamente a todas las peticiones
