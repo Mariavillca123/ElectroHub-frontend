@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "../../../utils/axios"
+import axios from "../../utils/axios"
 import ProductCard from "../../components/ui/ProductCard"
 import { Tag } from "lucide-react"
 
