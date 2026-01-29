@@ -23,7 +23,7 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:4000/api/auth/register", form);
+      await axios.post("/api/auth/register", form);
       alert("¡Registro exitoso! Ahora puedes iniciar sesión");
       navigate("/login");
     } catch (err: any) {
