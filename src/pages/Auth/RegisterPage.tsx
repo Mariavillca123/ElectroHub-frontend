@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../../../utils/axios";
 import { UserPlus, Store, ShoppingBag } from "lucide-react";
 
 export default function RegisterPage() {

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import axios from "axios"
+import axios from "../../../utils/axios"
 import { useCart } from "../../contexts/CartContext"
 import { useAuth } from "../../contexts/AuthContext"
 import { Trash2, ShoppingCart, Loader, Tag, Plus, Minus, CheckCircle } from "lucide-react"

@@ -1,8 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "../../utils/axios";
 import { useNavigate, useLocation } from "react-router-dom";
-
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:4000";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -17,7 +15,7 @@ export default function Login() {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post(`${API_URL}/api/auth/login`, {
+      const res = await axios.post(`/api/auth/login`, {
         email,
         password,
         isAdmin,

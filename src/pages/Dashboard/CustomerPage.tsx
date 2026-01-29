@@ -7,7 +7,7 @@ import DashboardSidebar from "../../components/layout/DashboardSidebar"
 import { useAuth } from "../../contexts/AuthContext"
 import { ShoppingBag, Clock, Tag, DollarSign, Package, ArrowRight, Zap, Mail, User } from "lucide-react"
 import CustomerOrders from "../../components/dashboard/CustomerOrders"
-import axios from "axios"
+import axios from "../../utils/axios"
 
 interface Order {
   id: number

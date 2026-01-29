@@ -1,7 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
-
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:4000";
+import axios from "../../utils/axios";
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -16,7 +14,7 @@ export default function Register() {
     e.preventDefault();
     setError("");
     try {
-      await axios.post(`${API_URL}/api/auth/register`, form);
+      await axios.post(`/api/auth/register`, form);
       alert("Registro exitoso, regresa al login e inicia sesión");
     } catch (err: any) {
       setError(err.response?.data?.message || "Error al registrarse");

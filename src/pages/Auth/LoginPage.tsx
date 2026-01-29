@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import axios from "axios";
+import axios from "../../../utils/axios";
 import { Lock, Mail, Shield } from "lucide-react";
 
 export default function LoginPage() {
