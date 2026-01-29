@@ -176,7 +176,7 @@ export default function VendorSalesPage() {
                       border: '1px solid #E5E7EB',
                       borderRadius: '0.5rem'
                     }}
-                    formatter={(value: number) => `$${value.toFixed(2)}`}
+                    formatter={(value: number | undefined) => value ? `$${value.toFixed(2)}` : '$0.00'}
                   />
                   <Line
                     type="monotone"
