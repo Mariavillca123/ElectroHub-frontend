@@ -1,5 +1,5 @@
 import { useCart } from "../../contexts/CartContext"
-import { Card, CardContent, CardFooter } from "./Card"
+import { Card, CardContent, CardFooter } from "./card"
 import { Button } from "./Button"
 import { Badge } from "./Badge"
 import { ShoppingCart, Package, Check } from "lucide-react"
