@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../../utils/axios"
 import { ShoppingBag, Calendar, DollarSign, Package } from 'lucide-react'
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"

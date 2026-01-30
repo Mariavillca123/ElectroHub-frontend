@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../../utils/axios"
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts"
 import { TrendingUp, ShoppingCart, Package } from 'lucide-react'
 import { useAuth } from "../../contexts/AuthContext"
@@ -41,10 +41,21 @@ export default function VendorPanel() {
     fetchSales()
   }, [])
 
-  const downloadPDF = () => {
-    const token = localStorage.getItem("token")
-    const headers = token ? { Authorization: `Bearer ${token}` } : {}
-    window.open("/api/reports/sales", "_blank")
+  const downloadPDF = async () => {
+    try {
+      const res = await axios.get("/api/reports/sales-pdf", { responseType: "blob" })
+      const blob = new Blob([res.data], { type: "application/pdf" })
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url
+      link.setAttribute("download", `reporte-ventas-${Date.now()}.pdf`)
+      document.body.appendChild(link)
+      link.click()
+      link.parentNode?.removeChild(link)
+      window.URL.revokeObjectURL(url)
+    } catch (error) {
+      console.error("Error downloading report:", error)
+    }
   }
 
   if (loading) {

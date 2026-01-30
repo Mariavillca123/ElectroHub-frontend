@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
+import axios from "../../utils/axios"
 import { Users, Package, ShoppingBag, TrendingUp } from 'lucide-react'
 
 interface Stats {
