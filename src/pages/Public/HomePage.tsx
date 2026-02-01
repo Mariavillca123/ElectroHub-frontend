@@ -41,11 +41,13 @@ const features = [
 
 const categories = [
   { name: "Microcontroladores", icon: "🎮", slug: "microcontroladores" },
-  { name: "Sensores", icon: "📡", slug: "sensores" },
   { name: "Componentes", icon: "⚡", slug: "componentes" },
+  { name: "Sensores", icon: "📡", slug: "sensores" },
   { name: "Comunicación", icon: "📶", slug: "comunicacion" },
+  { name: "Pantallas", icon: "🖥️", slug: "pantallas" },
+  { name: "Accesorios", icon: "🔧", slug: "accesorios" },
   { name: "Motores", icon: "⚙️", slug: "motores" },
-  { name: "Accesorios", icon: "🔧", slug: "accesorios" }
+  { name: "Cables", icon: "🔌", slug: "cables" },
 ]
 
 export default function HomePage() {
