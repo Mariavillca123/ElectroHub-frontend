@@ -40,14 +40,62 @@ const features = [
 ]
 
 const categories = [
-  { name: "Microcontroladores", icon: "🎮", slug: "microcontroladores" },
-  { name: "Componentes", icon: "⚡", slug: "componentes" },
-  { name: "Sensores", icon: "📡", slug: "sensores" },
-  { name: "Comunicación", icon: "📶", slug: "comunicacion" },
-  { name: "Pantallas", icon: "🖥️", slug: "pantallas" },
-  { name: "Accesorios", icon: "🔧", slug: "accesorios" },
-  { name: "Motores", icon: "⚙️", slug: "motores" },
-  { name: "Cables", icon: "🔌", slug: "cables" },
+  {
+    name: "Microcontroladores",
+    icon: "🎮",
+    slug: "microcontroladores",
+    description: "Pequeños computadores completos en un chip.",
+    borderClass: "border-blue-300",
+  },
+  {
+    name: "Componentes",
+    icon: "⚡",
+    slug: "componentes",
+    description: "Elementos básicos que, al interconectarse, forman circuitos electrónicos para controlar la electricidad y las señales.",
+    borderClass: "border-amber-300",
+  },
+  {
+    name: "Sensores",
+    icon: "📡",
+    slug: "sensores",
+    description: "Dispositivos que convierten una magnitud física del mundo real en una señal eléctrica",
+    borderClass: "border-purple-300",
+  },
+  {
+    name: "Comunicación",
+    icon: "📶",
+    slug: "comunicacion",
+    description: "Dispositivos o módulos que permiten el intercambio de datos entre sistemas electrónicos.",
+    borderClass: "border-sky-300",
+  },
+  {
+    name: "Pantallas",
+    icon: "🖥️",
+    slug: "pantallas",
+    description: "Dispositivos de salida que muestran información visual generada por un sistema electrónico.",
+    borderClass: "border-emerald-300",
+  },
+  {
+    name: "Accesorios",
+    icon: "🔧",
+    slug: "accesorios",
+    description: "Componentes auxiliares que complementan un sistema electrónico.",
+    borderClass: "border-orange-300",
+  },
+  {
+    name: "Motores",
+    icon: "⚙️",
+    slug: "motores",
+    description: "Dispositivos que convierten energía eléctrica en movimiento mecánico.",
+    borderClass: "border-rose-300",
+  },
+  {
+    name: "Cables",
+    icon: "🔌",
+    slug: "cables",
+    description: "Conductores que transmiten señales eléctricas entre componentes electrónicos.",
+    borderClass: "border-indigo-300",
+  },
 ]
 
 export default function HomePage() {
@@ -140,7 +188,7 @@ export default function HomePage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((category) => (
               <Link key={category.name} to={`/productos?category=${category.slug}`}>
-                <Card className="group cursor-pointer overflow-hidden transition-all hover:shadow-lg hover:border-blue-500">
+                <Card className={`group cursor-pointer overflow-hidden border-2 transition-all hover:-translate-y-1 hover:shadow-lg ${category.borderClass}`}>
                   <CardContent className="p-6">
                     <div className="mb-4 text-4xl">
                       {category.icon}
@@ -148,6 +196,9 @@ export default function HomePage() {
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                       {category.name}
                     </h3>
+                    <p className="mt-1 text-sm text-gray-600">
+                      {category.description}
+                    </p>
                   </CardContent>
                 </Card>
               </Link>
