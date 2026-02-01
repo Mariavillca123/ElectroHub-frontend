@@ -132,7 +132,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full button-floating text-white font-medium disabled:opacity-50"
+              className="button-floating"
             >
               {loading ? "Iniciando..." : "Iniciar sesión"}
             </button>

@@ -11,21 +11,25 @@ body {
 /* Button 52 Style - with blue shadow */
 .button-floating {
   font-size: 16px;
-  font-weight: 200;
-  letter-spacing: 1px;
-  padding: 13px 20px 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 13px 20px;
   outline: 0;
-  border: 1px solid #1e40af;
+  border: 2px solid #1e40af;
   cursor: pointer;
   position: relative;
-  background-color: rgba(59, 130, 246, 1);
+  background-color: #3b82f6;
+  color: white;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  border-radius: 0.5rem;
+  display: block;
+  width: 100%;
 }
 
-.button-floating:after {
+.button-floating::after {
   content: "";
   background-color: #1e40af;
   width: 100%;
@@ -34,11 +38,11 @@ body {
   height: 100%;
   top: 7px;
   left: 7px;
-  transition: 0.2s;
+  transition: all 0.2s ease;
   border-radius: 0.5rem;
 }
 
-.button-floating:hover:after {
+.button-floating:hover::after {
   top: 0px;
   left: 0px;
 }
@@ -48,9 +52,13 @@ body {
   cursor: not-allowed;
 }
 
+.button-floating:disabled::after {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .button-floating {
-    padding: 13px 50px 13px;
+    padding: 13px 50px;
   }
 }
 
