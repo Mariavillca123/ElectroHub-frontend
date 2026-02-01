@@ -15,11 +15,11 @@ body {
   letter-spacing: 0.5px;
   padding: 13px 20px;
   outline: 0;
-  border: 2px solid #ffffff;
+  border: 2px solid #060606;
   cursor: pointer;
   position: relative;
   background-color: #ffffff;
-  color: #5f5fdb;
+  color: #ffffff;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
