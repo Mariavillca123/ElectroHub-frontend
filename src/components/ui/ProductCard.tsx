@@ -52,12 +52,12 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg">
-      <div className="relative aspect-square overflow-hidden bg-gray-100">
+      <div className="relative aspect-square overflow-hidden bg-gray-100 flex items-center justify-center p-4">
         {product.image ? (
           <img 
             src={product.image} 
             alt={product.name}
-            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+            className="h-full w-full object-contain transition-transform group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full items-center justify-center">
