@@ -73,9 +73,10 @@ export default function CartPage() {
       setTimeout(() => {
         navigate('/cliente', { replace: true })
       }, 3000)
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error al procesar compra:", error)
-      alert("Error al procesar la compra. Intenta de nuevo.")
+      const errorMsg = error.response?.data?.message || "Error al procesar la compra. Intenta de nuevo."
+      alert(errorMsg)
     } finally {
       setIsProcessing(false)
     }
