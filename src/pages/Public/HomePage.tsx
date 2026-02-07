@@ -4,6 +4,7 @@ import axios from "../../utils/axios"
 import ProductCard from "../../components/ui/ProductCard"
 import { Card, CardContent } from "../../components/ui/card"
 import { Button } from "../../components/ui/Button"
+import ElectroBorder from "../../components/ui/ElectroBorder"
 import { ArrowRight, Zap, Truck, Shield, Headphones, Tag, TrendingUp } from "lucide-react"
 import fondoImage from "../../assets/fondo.jpg"
 
@@ -45,56 +46,56 @@ const categories = [
     icon: "🎮",
     slug: "microcontroladores",
     description: "Pequeños computadores completos en un chip.",
-    borderClass: "border-blue-300",
+    borderColor: "#93c5fd",
   },
   {
     name: "Componentes",
     icon: "⚡",
     slug: "componentes",
     description: "Elementos básicos que, al interconectarse, forman circuitos electrónicos para controlar la electricidad y las señales.",
-    borderClass: "border-amber-300",
+    borderColor: "#fcd34d",
   },
   {
     name: "Sensores",
     icon: "📡",
     slug: "sensores",
     description: "Dispositivos que convierten una magnitud física del mundo real en una señal eléctrica",
-    borderClass: "border-purple-300",
+    borderColor: "#d8b4fe",
   },
   {
     name: "Comunicación",
     icon: "📶",
     slug: "comunicacion",
     description: "Dispositivos o módulos que permiten el intercambio de datos entre sistemas electrónicos.",
-    borderClass: "border-sky-300",
+    borderColor: "#7dd3fc",
   },
   {
     name: "Pantallas",
     icon: "🖥️",
     slug: "pantallas",
     description: "Dispositivos de salida que muestran información visual generada por un sistema electrónico.",
-    borderClass: "border-emerald-300",
+    borderColor: "#6ee7b7",
   },
   {
     name: "Accesorios",
     icon: "🔧",
     slug: "accesorios",
     description: "Componentes auxiliares que complementan un sistema electrónico.",
-    borderClass: "border-orange-300",
+    borderColor: "#fdba74",
   },
   {
     name: "Motores",
     icon: "⚙️",
     slug: "motores",
     description: "Dispositivos que convierten energía eléctrica en movimiento mecánico.",
-    borderClass: "border-rose-300",
+    borderColor: "#fda4af",
   },
   {
     name: "Cables",
     icon: "🔌",
     slug: "cables",
     description: "Conductores que transmiten señales eléctricas entre componentes electrónicos.",
-    borderClass: "border-indigo-300",
+    borderColor: "#a5b4fc",
   },
 ]
 
@@ -188,19 +189,28 @@ export default function HomePage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((category) => (
               <Link key={category.name} to={`/productos?category=${category.slug}`}>
-                <Card className={`group cursor-pointer overflow-hidden border-2 transition-all hover:-translate-y-1 hover:shadow-lg ${category.borderClass}`}>
-                  <CardContent className="p-6">
-                    <div className="mb-4 text-4xl">
-                      {category.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {category.name}
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-600">
-                      {category.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <ElectroBorder
+                  borderColor={category.borderColor}
+                  borderWidth={2}
+                  glow
+                  aura
+                  animationSpeed={1.1}
+                  className="rounded-2xl"
+                >
+                  <Card className="group cursor-pointer overflow-hidden rounded-2xl bg-white/95 transition-all hover:-translate-y-1 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="mb-4 text-4xl">
+                        {category.icon}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {category.name}
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-600">
+                        {category.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </ElectroBorder>
               </Link>
             ))}
           </div>

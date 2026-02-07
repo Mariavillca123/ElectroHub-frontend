@@ -13,6 +13,112 @@ input[type="password"]::-ms-clear {
   display: none;
 }
 
+.electro-border {
+  position: relative;
+  border-radius: var(--eb-radius, 1rem);
+}
+
+.electro-border__content {
+  position: relative;
+  z-index: 1;
+}
+
+.electro-border__core,
+.electro-border__glow,
+.electro-border__aura {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.electro-border__core {
+  padding: var(--eb-width, 2px);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 10deg,
+    var(--eb-color, #22d3ee) 10deg 25deg,
+    transparent 25deg 45deg,
+    var(--eb-color, #22d3ee) 45deg 70deg,
+    transparent 70deg 95deg,
+    var(--eb-color, #22d3ee) 95deg 120deg,
+    transparent 120deg 145deg,
+    var(--eb-color, #22d3ee) 145deg 175deg,
+    transparent 175deg 205deg,
+    var(--eb-color, #22d3ee) 205deg 235deg,
+    transparent 235deg 265deg,
+    var(--eb-color, #22d3ee) 265deg 295deg,
+    transparent 295deg 325deg,
+    var(--eb-color, #22d3ee) 325deg 360deg
+  );
+  opacity: 0.95;
+  filter: drop-shadow(0 0 calc(var(--eb-glow, 24px) / var(--eb-distortion, 1)) var(--eb-color, #22d3ee));
+  animation:
+    electro-spin calc(6s / var(--eb-speed, 1)) linear infinite,
+    electro-flicker 2.6s ease-in-out infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.electro-border__glow {
+  inset: calc(var(--eb-width, 2px) * -1);
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg 20deg,
+    var(--eb-color, #22d3ee) 20deg 40deg,
+    transparent 40deg 70deg,
+    var(--eb-color, #22d3ee) 70deg 110deg,
+    transparent 110deg 140deg,
+    var(--eb-color, #22d3ee) 140deg 170deg,
+    transparent 170deg 210deg,
+    var(--eb-color, #22d3ee) 210deg 260deg,
+    transparent 260deg 300deg,
+    var(--eb-color, #22d3ee) 300deg 340deg,
+    transparent 340deg 360deg
+  );
+  filter: blur(var(--eb-glow, 24px));
+  opacity: 0.4;
+  animation: electro-spin calc(10s / var(--eb-speed, 1)) linear infinite reverse;
+}
+
+.electro-border__aura {
+  inset: calc(var(--eb-width, 2px) * -2);
+  background: radial-gradient(circle, var(--eb-color, #22d3ee) 0%, transparent 70%);
+  filter: blur(var(--eb-aura, 48px));
+  opacity: 0.25;
+  animation: electro-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes electro-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes electro-flicker {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes electro-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
 /* Button 52 Style - with blue shadow */
 .button-floating {
   font-size: 16px;
