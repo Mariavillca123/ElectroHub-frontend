@@ -13,27 +13,30 @@ interface ElectroBorderProps {
   effects?: boolean;
   distortion?: number;
   radius?: number | string;
+  style?: React.CSSProperties;
 }
 
 export default function ElectroBorder({
   children,
   className,
-  borderColor = "#22d3ee",
+  borderColor = "#00fffc",
   borderWidth = 2,
-  animationSpeed = 1,
-  glowBlur = 24,
-  auraBlur = 48,
+  animationSpeed = 0.8,
+  glowBlur = 30,
+  auraBlur = 30,
   glow = true,
   aura = true,
   effects = true,
   distortion = 1,
-  radius = "1rem",
+  radius = "inherit",
+  style,
 }: ElectroBorderProps) {
   const filterId = useId();
   const svgRadius = typeof radius === "number" ? radius : 16;
   const strokeWidth = Math.max(2, borderWidth);
   const distortionScale = Math.max(4, 10 * distortion);
-  const style = {
+  const hasAnimation = animationSpeed > 0;
+  const mergedStyle = {
     "--eb-color": borderColor,
     "--eb-width": `${borderWidth}px`,
     "--eb-speed": animationSpeed,
@@ -41,12 +44,16 @@ export default function ElectroBorder({
     "--eb-aura": `${auraBlur}px`,
     "--eb-distortion": distortion,
     "--eb-radius": typeof radius === "number" ? `${radius}px` : radius,
+    ...style,
   } as React.CSSProperties;
 
   return (
-    <div className={`electro-border ${className ?? ""}`} style={style}>
-      {aura && <span className="electro-border__aura" aria-hidden="true" />}
-      {glow && <span className="electro-border__glow" aria-hidden="true" />}
+    <div
+      className={`electro-border ${!hasAnimation ? "electro-border--static" : ""} ${className ?? ""}`}
+      style={mergedStyle}
+    >
+      {effects && aura && <span className="electro-border__aura" aria-hidden="true" />}
+      {effects && glow && <span className="electro-border__glow" aria-hidden="true" />}
       {effects && <span className="electro-border__core" aria-hidden="true" />}
       {effects && (
         <svg

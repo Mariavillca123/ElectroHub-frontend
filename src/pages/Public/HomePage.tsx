@@ -194,7 +194,7 @@ export default function HomePage() {
                   borderWidth={3}
                   glow
                   aura
-                  animationSpeed={1.1}
+                  animationSpeed={0}
                   className="rounded-2xl"
                 >
                   <Card className="group cursor-pointer overflow-hidden rounded-2xl bg-white/95 transition-all hover:-translate-y-1 hover:shadow-lg">
