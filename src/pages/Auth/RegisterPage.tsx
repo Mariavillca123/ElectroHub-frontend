@@ -139,7 +139,7 @@ export default function RegisterPage() {
                 type="text"
                 required
                 className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Juan Pérez"
+                placeholder="Nombre y apellido"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
