@@ -16,6 +16,7 @@ input[type="password"]::-ms-clear {
 .electro-border {
   position: relative;
   border-radius: var(--eb-radius, 1rem);
+  padding: var(--eb-width, 2px);
 }
 
 .electro-border__content {
@@ -52,6 +53,7 @@ input[type="password"]::-ms-clear {
     var(--eb-color, #22d3ee) 325deg 360deg
   );
   opacity: 0.95;
+  mix-blend-mode: normal;
   filter: drop-shadow(0 0 calc(var(--eb-glow, 24px) / var(--eb-distortion, 1)) var(--eb-color, #22d3ee));
   animation: none;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -76,7 +78,7 @@ input[type="password"]::-ms-clear {
     transparent 340deg 360deg
   );
   filter: blur(var(--eb-glow, 24px));
-  opacity: 0.4;
+  opacity: 0.55;
   animation: none;
 }
 
@@ -84,7 +86,7 @@ input[type="password"]::-ms-clear {
   inset: calc(var(--eb-width, 2px) * -2);
   background: radial-gradient(circle, var(--eb-color, #22d3ee) 0%, transparent 70%);
   filter: blur(var(--eb-aura, 48px));
-  opacity: 0.25;
+  opacity: 0.3;
   animation: none;
 }
 
