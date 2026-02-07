@@ -55,7 +55,9 @@ input[type="password"]::-ms-clear {
   opacity: 0.95;
   mix-blend-mode: normal;
   filter: drop-shadow(0 0 calc(var(--eb-glow, 24px) / var(--eb-distortion, 1)) var(--eb-color, #22d3ee));
-  animation: none;
+  animation:
+    electro-spin calc(6s / var(--eb-speed, 1)) linear infinite,
+    electro-flicker 2.6s ease-in-out infinite;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -79,7 +81,7 @@ input[type="password"]::-ms-clear {
   );
   filter: blur(var(--eb-glow, 24px));
   opacity: 0.55;
-  animation: none;
+  animation: electro-spin calc(10s / var(--eb-speed, 1)) linear infinite reverse;
 }
 
 .electro-border__aura {
@@ -87,7 +89,36 @@ input[type="password"]::-ms-clear {
   background: radial-gradient(circle, var(--eb-color, #22d3ee) 0%, transparent 70%);
   filter: blur(var(--eb-aura, 48px));
   opacity: 0.3;
-  animation: none;
+  animation: electro-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes electro-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes electro-flicker {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes electro-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 
 /* Button 52 Style - with blue shadow */

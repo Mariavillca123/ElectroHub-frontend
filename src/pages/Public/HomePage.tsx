@@ -191,7 +191,7 @@ export default function HomePage() {
               <Link key={category.name} to={`/productos?category=${category.slug}`}>
                 <ElectroBorder
                   borderColor={category.borderColor}
-                  borderWidth={2}
+                  borderWidth={3}
                   glow
                   aura
                   animationSpeed={1.1}
