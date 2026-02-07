@@ -34,7 +34,7 @@ export default function ElectroBorder({
   const filterId = useId();
   const svgRadius = typeof radius === "number" ? radius : 16;
   const strokeWidth = Math.max(2, borderWidth);
-  const distortionScale = Math.max(6, 14 * distortion);
+  const distortionScale = Math.max(7, 15 * distortion);
   const hasAnimation = animationSpeed > 0;
   const mergedStyle = {
     "--eb-color": borderColor,
@@ -67,7 +67,7 @@ export default function ElectroBorder({
               <feTurbulence
                 type="fractalNoise"
                 baseFrequency="1.2"
-                numOctaves="2"
+                numOctaves="4"
                 seed="7"
                 result="noise"
               />
