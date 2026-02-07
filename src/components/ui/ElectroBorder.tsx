@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 
 interface ElectroBorderProps {
   children: React.ReactNode;
@@ -29,6 +29,10 @@ export default function ElectroBorder({
   distortion = 1,
   radius = "1rem",
 }: ElectroBorderProps) {
+  const filterId = useId();
+  const svgRadius = typeof radius === "number" ? radius : 16;
+  const strokeWidth = Math.max(2, borderWidth);
+  const distortionScale = Math.max(4, 10 * distortion);
   const style = {
     "--eb-color": borderColor,
     "--eb-width": `${borderWidth}px`,
@@ -44,6 +48,39 @@ export default function ElectroBorder({
       {aura && <span className="electro-border__aura" aria-hidden="true" />}
       {glow && <span className="electro-border__glow" aria-hidden="true" />}
       {effects && <span className="electro-border__core" aria-hidden="true" />}
+      {effects && (
+        <svg
+          className="electro-border__svg"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <filter id={`${filterId}-noise`} x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.9"
+                numOctaves="1"
+                seed="3"
+                result="noise"
+              />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale={distortionScale} />
+            </filter>
+          </defs>
+          <rect
+            x="2"
+            y="2"
+            width="96"
+            height="96"
+            rx={svgRadius}
+            ry={svgRadius}
+            fill="none"
+            stroke="var(--eb-color)"
+            strokeWidth={strokeWidth}
+            filter={`url(#${filterId}-noise)`}
+          />
+        </svg>
+      )}
       <div className="electro-border__content">{children}</div>
     </div>
   );
