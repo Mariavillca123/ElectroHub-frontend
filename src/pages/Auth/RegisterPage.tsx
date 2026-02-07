@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "../../utils/axios";
-import { UserPlus, Store, ShoppingBag } from "lucide-react";
+import { UserPlus, Store, ShoppingBag, Eye, EyeOff, Check } from "lucide-react";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -16,6 +16,46 @@ export default function RegisterPage() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const getPasswordStrength = (password: string) => {
+    let score = 0;
+
+    if (password.length >= 8) score += 1;
+    if (password.length >= 12) score += 1;
+    if (/[A-Z]/.test(password)) score += 1;
+    if (/[0-9]/.test(password)) score += 1;
+    if (/[^A-Za-z0-9]/.test(password)) score += 1;
+
+    const labels = [
+      "Muy debil",
+      "Debil",
+      "Media",
+      "Aceptable",
+      "Buena",
+      "Fuerte"
+    ];
+    const colors = [
+      "bg-red-400",
+      "bg-orange-400",
+      "bg-yellow-400",
+      "bg-amber-400",
+      "bg-lime-500",
+      "bg-emerald-500"
+    ];
+
+    const clampedScore = Math.min(score, 5);
+
+    return {
+      score: clampedScore,
+      maxScore: 5,
+      label: labels[clampedScore],
+      colorClass: colors[clampedScore]
+    };
+  };
+
+  const strength = getPasswordStrength(form.password);
+  const strengthValue = Math.round((strength.score / strength.maxScore) * 10);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -125,15 +165,47 @@ export default function RegisterPage() {
               <label className="block text-sm font-medium text-foreground mb-2">
                 Contraseña
               </label>
-              <input
-                type="password"
-                required
-                minLength={6}
-                className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Mínimo 6 caracteres"
-                value={form.password}
-                onChange={(e) => setForm({ ...form, password: e.target.value })}
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  required
+                  minLength={6}
+                  autoComplete="new-password"
+                  className="w-full px-4 py-2 pr-12 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Mínimo 6 caracteres"
+                  value={form.password}
+                  onChange={(e) => setForm({ ...form, password: e.target.value })}
+                />
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                  {strength.score >= 4 && (
+                    <Check className="h-4 w-4 text-emerald-500" />
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(prev => !prev)}
+                    className="text-muted-foreground hover:text-foreground"
+                    aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </button>
+                </div>
+              </div>
+              <div className="mt-2">
+                <div className="flex items-center justify-between text-xs text-muted-foreground">
+                  <span>Fortaleza: {strength.label}</span>
+                  <span>{strengthValue}/10</span>
+                </div>
+                <div className="mt-2 h-1.5 w-full rounded-full bg-muted">
+                  <div
+                    className={`h-1.5 rounded-full transition-all ${strength.colorClass}`}
+                    style={{ width: `${(strength.score / strength.maxScore) * 100}%` }}
+                  />
+                </div>
+              </div>
             </div>
 
             <button

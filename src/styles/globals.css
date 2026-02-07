@@ -8,6 +8,11 @@ body {
   color: #111827;
 }
 
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
 /* Button 52 Style - with blue shadow */
 .button-floating {
   font-size: 16px;
