@@ -51,7 +51,7 @@ export function StockReminderProvider({ children }: { children: ReactNode }) {
       saveReminders(newReminders);
 
       // Show toast notification
-      showNotification(`✓ Recordatorio activado para ${productName}`);
+      showNotification();
     },
     [reminders, saveReminders]
   );
@@ -77,7 +77,7 @@ export function StockReminderProvider({ children }: { children: ReactNode }) {
           r.productId === productId ? { ...r, notified: true } : r
         );
         saveReminders(updatedReminders);
-        showNotification(`${reminder.productName} ya está disponible!`);
+        showNotification();
       }
     },
     [reminders, saveReminders]

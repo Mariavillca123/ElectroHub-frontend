@@ -118,7 +118,7 @@ export default function CouponsPage() {
     return diffDays;
   };
 
-  const categories = ['all', ...new Set(mockCoupons.map(c => c.category))];
+  const categories = ['all', ...new Set(mockCoupons.map(c => c.category).filter(Boolean))] as string[];
   const filteredCoupons = selectedFilter === 'all' 
     ? mockCoupons 
     : mockCoupons.filter(c => c.category === selectedFilter);
