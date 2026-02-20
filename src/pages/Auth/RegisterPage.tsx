@@ -76,13 +76,13 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <UserPlus className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground">Crear Cuenta</h1>
-            <p className="text-muted-foreground mt-2">Únete a ElectroHub</p>
+            <h1 className="text-2xl font-bold text-foreground dark:text-white">Crear Cuenta</h1>
+            <p className="text-muted-foreground dark:text-gray-400 mt-2">Únete a ElectroHub</p>
           </div>
 
           {error && (
@@ -94,7 +94,7 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Role Selection */}
             <div>
-              <label className="block text-sm font-medium text-foreground mb-3">
+              <label className="block text-sm font-medium text-foreground dark:text-white mb-3">
                 Tipo de cuenta
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -103,12 +103,12 @@ export default function RegisterPage() {
                   onClick={() => setForm({ ...form, role: "cliente" })}
                   className={`flex flex-col items-center gap-2 p-4 rounded-lg border-2 transition-all ${
                     form.role === "cliente"
-                      ? "border-primary bg-primary/5"
-                      : "border-border hover:border-primary/50"
+                      ? "border-primary bg-primary/5 dark:bg-primary/10"
+                      : "border-border dark:border-gray-700 hover:border-primary/50"
                   }`}
                 >
                   <ShoppingBag className={`h-6 w-6 ${form.role === "cliente" ? "text-primary" : "text-muted-foreground"}`} />
-                  <span className={`text-sm font-medium ${form.role === "cliente" ? "text-primary" : "text-foreground"}`}>
+                  <span className={`text-sm font-medium ${form.role === "cliente" ? "text-primary" : "text-foreground dark:text-gray-300"}`}>
                     Cliente
                   </span>
                 </button>
@@ -118,12 +118,12 @@ export default function RegisterPage() {
                   onClick={() => setForm({ ...form, role: "vendedor" })}
                   className={`flex flex-col items-center gap-2 p-4 rounded-lg border-2 transition-all ${
                     form.role === "vendedor"
-                      ? "border-primary bg-primary/5"
-                      : "border-border hover:border-primary/50"
+                      ? "border-primary bg-primary/5 dark:bg-primary/10"
+                      : "border-border dark:border-gray-700 hover:border-primary/50"
                   }`}
                 >
                   <Store className={`h-6 w-6 ${form.role === "vendedor" ? "text-primary" : "text-muted-foreground"}`} />
-                  <span className={`text-sm font-medium ${form.role === "vendedor" ? "text-primary" : "text-foreground"}`}>
+                  <span className={`text-sm font-medium ${form.role === "vendedor" ? "text-primary" : "text-foreground dark:text-gray-300"}`}>
                     Vendedor
                   </span>
                 </button>
@@ -132,13 +132,13 @@ export default function RegisterPage() {
 
             {/* Name */}
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
+              <label className="block text-sm font-medium text-foreground dark:text-white mb-2">
                 Nombre completo
               </label>
               <input
                 type="text"
                 required
-                className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-foreground dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Nombre y apellido"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -147,13 +147,13 @@ export default function RegisterPage() {
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
+              <label className="block text-sm font-medium text-foreground dark:text-white mb-2">
                 Correo electrónico
               </label>
               <input
                 type="email"
                 required
-                className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-2 border border-border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-foreground dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="correo@ejemplo.com"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -162,7 +162,7 @@ export default function RegisterPage() {
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
+              <label className="block text-sm font-medium text-foreground dark:text-white mb-2">
                 Contraseña
               </label>
               <div className="relative">
@@ -171,7 +171,7 @@ export default function RegisterPage() {
                   required
                   minLength={6}
                   autoComplete="new-password"
-                  className="w-full px-4 py-2 pr-12 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 pr-12 border border-border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-foreground dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Mínimo 6 caracteres"
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
@@ -183,7 +183,7 @@ export default function RegisterPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(prev => !prev)}
-                    className="text-muted-foreground hover:text-foreground"
+                    className="text-muted-foreground dark:text-gray-500 hover:text-foreground dark:hover:text-gray-300"
                     aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
                   >
                     {showPassword ? (
@@ -195,11 +195,11 @@ export default function RegisterPage() {
                 </div>
               </div>
               <div className="mt-2">
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
+                <div className="flex items-center justify-between text-xs text-muted-foreground dark:text-gray-400">
                   <span>Fortaleza: {strength.label}</span>
                   <span>{strengthValue}/10</span>
                 </div>
-                <div className="mt-2 h-1.5 w-full rounded-full bg-muted">
+                <div className="mt-2 h-1.5 w-full rounded-full bg-muted dark:bg-gray-800">
                   <div
                     className={`h-1.5 rounded-full transition-all ${strength.colorClass}`}
                     style={{ width: `${(strength.score / strength.maxScore) * 100}%` }}
@@ -217,9 +217,9 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p className="text-center text-sm text-muted-foreground mt-6">
+          <p className="text-center text-sm text-muted-foreground dark:text-gray-400 mt-6">
             ¿Ya tienes cuenta?{" "}
-            <a href="/login" className="text-primary font-medium hover:underline">
+            <a href="/login" className="text-primary dark:text-blue-400 font-medium hover:underline">
               Inicia sesión
             </a>
           </p>
