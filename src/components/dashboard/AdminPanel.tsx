@@ -97,7 +97,7 @@ export default function AdminPanel() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="text-gray-500">Cargando estadísticas...</div>
+        <div className="text-gray-500 dark:text-gray-400">Cargando estadísticas...</div>
       </div>
     )
   }
@@ -105,8 +105,8 @@ export default function AdminPanel() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900">Panel de Administración</h1>
-        <p className="mt-2 text-gray-600">Bienvenido al panel de control de ElectroHub</p>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Panel de Administración</h1>
+        <p className="mt-2 text-gray-600 dark:text-gray-400">Bienvenido al panel de control de ElectroHub</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -115,14 +115,14 @@ export default function AdminPanel() {
           return (
             <div
               key={card.title}
-              className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+              className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm hover:shadow-md dark:hover:shadow-lg transition-shadow"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">{card.title}</p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">{card.value}</p>
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{card.title}</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">{card.value}</p>
                 </div>
-                <div className={`rounded-lg ${card.color} p-3`}>
+                <div className={`rounded-lg ${card.color} dark:bg-blue-900/20 p-3`}>
                   <Icon className={`h-6 w-6 ${card.textColor}`} />
                 </div>
               </div>
@@ -132,56 +132,54 @@ export default function AdminPanel() {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Usuarios por Rol</h2>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Usuarios por Rol</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-lg border border-gray-200 bg-white p-5 flex items-center justify-between">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Vendedores</p>
-              <p className="text-3xl font-bold text-gray-900 mt-1">{stats.vendors}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Vendedores</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{stats.vendors}</p>
             </div>
-            <div className="rounded-full bg-blue-50 p-3">
-              <Users className="h-6 w-6 text-blue-600" />
+            <div className="rounded-full bg-blue-50 dark:bg-blue-900/20 p-3">
+              <Users className="h-6 w-6 text-blue-600 dark:text-blue-400" />
             </div>
           </div>
-          <div className="rounded-lg border border-gray-200 bg-white p-5 flex items-center justify-between">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Clientes</p>
-              <p className="text-3xl font-bold text-gray-900 mt-1">{stats.clients}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Clientes</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mt-1">{stats.clients}</p>
             </div>
-            <div className="rounded-full bg-green-50 p-3">
-              <Users className="h-6 w-6 text-green-600" />
+            <div className="rounded-full bg-green-50 dark:bg-green-900/20 p-3">
+              <Users className="h-6 w-6 text-green-600 dark:text-green-400" />
             </div>
           </div>
         </div>
       </div>
 
-
-
       <div className="mt-10">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Vendedores y Clientes</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Vendedores y Clientes</h2>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-gray-200 bg-white shadow-sm">
-          <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Lista de Usuarios ({vendors.length + clients.length})</h3>
-            <span className="text-sm text-gray-500">Vendedores y clientes</span>
+        <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Lista de Usuarios ({vendors.length + clients.length})</h3>
+            <span className="text-sm text-gray-500 dark:text-gray-400">Vendedores y clientes</span>
           </div>
-          <div className="px-6 py-3 grid grid-cols-12 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+          <div className="px-6 py-3 grid grid-cols-12 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide bg-gray-50 dark:bg-gray-800/50">
             <div className="col-span-3">Usuario</div>
             <div className="col-span-3">Email</div>
             <div className="col-span-2">Rol</div>
             <div className="col-span-2">Empresa</div>
             <div className="col-span-2">Registro</div>
           </div>
-          <div className="divide-y divide-gray-100">
+          <div className="divide-y divide-gray-100 dark:divide-gray-800">
             {vendors.map((u) => (
-              <UserRow key={u.id || u.email} user={u} badge="Vendedor" badgeClass="bg-blue-100 text-blue-700" />
+              <UserRow key={u.id || u.email} user={u} badge="Vendedor" badgeClass="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" />
             ))}
             {clients.map((u) => (
-              <UserRow key={(u.id || u.email) + '-c'} user={u} badge="Cliente" badgeClass="bg-gray-100 text-gray-800" />
+              <UserRow key={(u.id || u.email) + '-c'} user={u} badge="Cliente" badgeClass="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300" />
             ))}
           </div>
         </div>
@@ -198,19 +196,19 @@ interface UserRowProps {
 
 function UserRow({ user, badge, badgeClass }: UserRowProps) {
   return (
-    <div className="grid grid-cols-12 items-center gap-4 py-3 px-6 text-sm">
-      <div className="col-span-3 font-medium text-gray-900 flex items-center gap-2">
-        <div className="h-9 w-9 flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-semibold">
+    <div className="grid grid-cols-12 items-center gap-4 py-3 px-6 text-sm hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+      <div className="col-span-3 font-medium text-gray-900 dark:text-white flex items-center gap-2">
+        <div className="h-9 w-9 flex items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold">
           {(user.name || "?").charAt(0).toUpperCase()}
         </div>
         <span className="truncate">{user.name}</span>
       </div>
-      <div className="col-span-3 text-gray-600 truncate">{user.email}</div>
+      <div className="col-span-3 text-gray-600 dark:text-gray-400 truncate">{user.email}</div>
       <div className="col-span-2">
         <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold ${badgeClass}`}>{badge}</span>
       </div>
-      <div className="col-span-2 text-gray-600 truncate">{user.company || user.empresa || '-'}</div>
-      <div className="col-span-2 text-gray-600 truncate">{user.created_at?.slice(0, 10) || ''}</div>
+      <div className="col-span-2 text-gray-600 dark:text-gray-400 truncate">{user.company || user.empresa || '-'}</div>
+      <div className="col-span-2 text-gray-600 dark:text-gray-400 truncate">{user.created_at?.slice(0, 10) || ''}</div>
     </div>
   )
 }

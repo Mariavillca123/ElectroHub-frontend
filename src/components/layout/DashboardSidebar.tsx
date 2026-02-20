@@ -73,7 +73,7 @@ export default function DashboardSidebar({ role }: { role: 'customer' | 'vendor'
       )}>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white p-2 text-gray-700 hover:bg-gray-50 shadow-md"
+          className="inline-flex items-center justify-center rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 shadow-md"
         >
           {isOpen ? (
             <X className="h-5 w-5" />
@@ -94,25 +94,25 @@ export default function DashboardSidebar({ role }: { role: 'customer' | 'vendor'
       {/* Sidebar */}
       <aside
         className={cn(
-          'fixed left-0 top-0 z-40 flex h-full w-64 flex-col border-r border-gray-200 bg-white transition-transform lg:translate-x-0',
+          'fixed left-0 top-0 z-40 flex h-full w-64 flex-col border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-transform lg:translate-x-0',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
         {/* Logo */}
-        <div className="flex h-16 shrink-0 items-center gap-2 border-b border-gray-200 px-6">
+        <div className="flex h-16 shrink-0 items-center gap-2 border-b border-gray-200 dark:border-gray-800 px-6">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
               <Zap className="h-5 w-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900 whitespace-nowrap">ElectroHub</span>
+            <span className="text-lg font-bold text-gray-900 dark:text-white whitespace-nowrap">ElectroHub</span>
           </Link>
         </div>
 
         {/* Role Badge */}
-        <div className="border-b border-gray-200 px-4 py-3">
-          <div className="flex items-center gap-2 rounded-lg bg-blue-50 px-3 py-2">
-            <RoleIcon className="h-4 w-4 text-blue-600" />
-            <span className="text-sm font-medium text-blue-600">{roleLabel}</span>
+        <div className="border-b border-gray-200 dark:border-gray-800 px-4 py-3">
+          <div className="flex items-center gap-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 px-3 py-2">
+            <RoleIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{roleLabel}</span>
           </div>
         </div>
 
@@ -129,8 +129,8 @@ export default function DashboardSidebar({ role }: { role: 'customer' | 'vendor'
                 className={cn(
                   'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
                   isActive
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-blue-600 dark:bg-blue-600 text-white'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 )}
               >
                 <Icon className="h-5 w-5" />
@@ -141,19 +141,19 @@ export default function DashboardSidebar({ role }: { role: 'customer' | 'vendor'
         </nav>
 
         {/* User Section */}
-        <div className="border-t border-gray-200 p-4">
+        <div className="border-t border-gray-200 dark:border-gray-800 p-4">
           <div className="mb-3 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white font-semibold">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 dark:bg-blue-500 text-white font-semibold">
               {user?.name?.charAt(0).toUpperCase() || 'U'}
             </div>
             <div className="flex-1 overflow-hidden">
-              <p className="truncate text-sm font-medium text-gray-900">{user?.name || 'Usuario'}</p>
-              <p className="truncate text-xs text-gray-600">{user?.email || 'usuario@email.com'}</p>
+              <p className="truncate text-sm font-medium text-gray-900 dark:text-white">{user?.name || 'Usuario'}</p>
+              <p className="truncate text-xs text-gray-600 dark:text-gray-400">{user?.email || 'usuario@email.com'}</p>
             </div>
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-start gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+            className="w-full flex items-center justify-start gap-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
             <LogOut className="h-4 w-4" />
             Cerrar Sesión

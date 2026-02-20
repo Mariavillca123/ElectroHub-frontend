@@ -96,17 +96,17 @@ export default function VendorSalesPage() {
 
   if (loading) {
     return (
-      <div className="flex h-screen bg-gray-50">
+      <div className="flex h-screen bg-white dark:bg-gray-950">
         <DashboardSidebar role="vendor" />
         <main className="flex-1 flex items-center justify-center lg:ml-64">
-          <div className="text-gray-500">Cargando ventas...</div>
+          <div className="text-gray-500 dark:text-gray-400">Cargando ventas...</div>
         </main>
       </div>
     )
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-white dark:bg-gray-950">
       <DashboardSidebar role="vendor" />
       <main className="flex-1 flex flex-col overflow-hidden lg:ml-64">
         <div className="flex-1 overflow-auto px-4 py-8 lg:px-8">

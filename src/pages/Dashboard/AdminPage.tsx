@@ -29,7 +29,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-white dark:bg-gray-950">
       <DashboardSidebar role="admin" />
       <main className="flex-1 flex flex-col overflow-hidden lg:ml-64">
         <div className="flex-1 overflow-auto pt-16 lg:pt-0 px-4 py-8 lg:px-8">

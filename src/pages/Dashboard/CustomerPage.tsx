@@ -107,7 +107,7 @@ export default function CustomerPage() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-white dark:bg-gray-950">
       <DashboardSidebar role="customer" />
       <main className="flex-1 flex flex-col overflow-hidden lg:ml-64">
         <div className="flex-1 overflow-auto pt-16 lg:pt-0 px-6 py-6 lg:px-8">
@@ -137,28 +137,28 @@ export default function CustomerPage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                      <div className="flex items-center gap-2 text-gray-500 text-sm font-medium mb-2">
+                    <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+                      <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm font-medium mb-2">
                         <User className="h-4 w-4" />
                         <span>Nombre</span>
                       </div>
-                      <p className="text-base font-semibold text-gray-900">{user.name}</p>
+                      <p className="text-base font-semibold text-gray-900 dark:text-white">{user.name}</p>
                     </div>
 
-                    <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                      <div className="flex items-center gap-2 text-gray-500 text-sm font-medium mb-2">
+                    <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+                      <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm font-medium mb-2">
                         <Mail className="h-4 w-4" />
                         <span>Email</span>
                       </div>
-                      <p className="text-base font-semibold text-gray-900">{user.email}</p>
+                      <p className="text-base font-semibold text-gray-900 dark:text-white">{user.email}</p>
                     </div>
 
-                    <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 md:col-span-2 lg:col-span-1">
-                      <div className="flex items-center gap-2 text-gray-500 text-sm font-medium mb-2">
+                    <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4 bg-gray-50 dark:bg-gray-900 md:col-span-2 lg:col-span-1">
+                      <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm font-medium mb-2">
                         <Clock className="h-4 w-4" />
                         <span>Miembro desde</span>
                       </div>
-                      <p className="text-base font-semibold text-gray-900">{memberSince}</p>
+                      <p className="text-base font-semibold text-gray-900 dark:text-white">{memberSince}</p>
                     </div>
                   </div>
                 </div>

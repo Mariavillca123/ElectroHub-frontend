@@ -152,25 +152,25 @@ export default function VendorProductsPage() {
 
   if (loading) {
     return (
-      <div className="flex h-screen bg-gray-50">
+      <div className="flex h-screen bg-white dark:bg-gray-950">
         <DashboardSidebar role="vendor" />
         <main className="flex-1 flex items-center justify-center lg:ml-64">
-          <div className="text-gray-500">Cargando productos...</div>
+          <div className="text-gray-500 dark:text-gray-400">Cargando productos...</div>
         </main>
       </div>
     )
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-white dark:bg-gray-950">
       <DashboardSidebar role="vendor" />
       <main className="flex-1 flex flex-col overflow-hidden lg:ml-64">
         <div className="flex-1 overflow-auto px-4 py-8 lg:px-8">
           {/* Header */}
           <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900">Productos</h1>
-              <p className="mt-2 text-gray-600">Gestiona tu inventario de productos</p>
+              <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Productos</h1>
+              <p className="mt-2 text-gray-600 dark:text-gray-400">Gestiona tu inventario de productos</p>
             </div>
             <Button onClick={openAddModal} className="gap-2">
               <Plus className="h-5 w-5" />

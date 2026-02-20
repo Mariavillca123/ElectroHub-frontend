@@ -36,7 +36,7 @@ export default function VendorPage() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-white dark:bg-gray-950">
       <DashboardSidebar role="vendor" />
       <main className="flex-1 flex flex-col overflow-hidden lg:ml-64">
         <div className="flex-1 overflow-auto px-4 py-8 lg:px-8">

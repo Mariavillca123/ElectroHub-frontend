@@ -22,10 +22,10 @@ interface Order {
 }
 
 const statusColors = {
-  pendiente: 'bg-yellow-100 text-yellow-700',
-  enviado: 'bg-blue-100 text-blue-700',
-  entregado: 'bg-green-100 text-green-700',
-  cancelado: 'bg-red-100 text-red-700'
+  pendiente: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300',
+  enviado: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300',
+  entregado: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300',
+  cancelado: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
 }
 
 const statusLabels = {
@@ -88,16 +88,16 @@ export default function CustomerOrders({ isFullPage = false }: CustomerOrdersPro
     <div>
       {isFullPage && (
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Mis Pedidos</h1>
-          <p className="text-gray-600 mt-2">Historial completo de tus compras</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Mis Pedidos</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">Historial completo de tus compras</p>
         </div>
       )}
 
       {orders.length === 0 ? (
-        <div className="rounded-lg border border-gray-200 bg-white p-12 text-center">
-          <ShoppingBag className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-lg font-medium text-gray-900">No hay pedidos aún</p>
-          <p className="mt-1 text-gray-600">Cuando hagas una compra, aparecerá aquí</p>
+        <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-12 text-center">
+          <ShoppingBag className="h-12 w-12 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
+          <p className="text-lg font-medium text-gray-900 dark:text-white">No hay pedidos aún</p>
+          <p className="mt-1 text-gray-600 dark:text-gray-400">Cuando hagas una compra, aparecerá aquí</p>
         </div>
       ) : (
         <div className={isFullPage ? "space-y-6" : "space-y-4"}>
@@ -117,43 +117,43 @@ export default function CustomerOrders({ isFullPage = false }: CustomerOrdersPro
             return (
               <div
                 key={order.id}
-                className="rounded-lg border border-gray-200 bg-white p-6 hover:shadow-md transition-shadow"
+                className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:shadow-md dark:hover:shadow-lg transition-shadow"
               >
                 {isFullPage ? (
                   <>
                     {/* Full Page Layout */}
-                    <div className="flex items-start justify-between mb-6 pb-4 border-b border-gray-200">
+                    <div className="flex items-start justify-between mb-6 pb-4 border-b border-gray-200 dark:border-gray-800">
                       <div>
-                        <h3 className="text-lg font-bold text-gray-900">Pedido #{order.id}</h3>
-                        <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">Pedido #{order.id}</h3>
+                        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mt-1">
                           <Calendar className="h-4 w-4" />
                           <span>{formattedDate}, {formattedTime}</span>
                         </div>
                       </div>
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusColors[order.status as keyof typeof statusColors] || 'bg-gray-100 text-gray-700'}`}>
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusColors[order.status as keyof typeof statusColors] || 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'}`}>
                         {statusLabels[order.status as keyof typeof statusLabels] || order.status}
                       </span>
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                         <Package className="h-4 w-4" />
                         Productos
                       </h4>
-                      <div className="bg-gray-50 rounded-lg p-4 space-y-3">
+                      <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 space-y-3">
                         <div className="flex items-center justify-between">
                           <div>
-                            <p className="text-sm font-medium text-gray-900">{order.product}</p>
-                            <p className="text-xs text-gray-600 mt-1">Cantidad: {order.quantity}</p>
+                            <p className="text-sm font-medium text-gray-900 dark:text-white">{order.product}</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Cantidad: {order.quantity}</p>
                           </div>
-                          <p className="text-sm font-semibold text-gray-900">${order.total.toFixed(2)}</p>
+                          <p className="text-sm font-semibold text-gray-900 dark:text-white">${order.total.toFixed(2)}</p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                      <span className="text-base font-semibold text-gray-900">Total</span>
-                      <span className="text-2xl font-bold text-blue-600">${order.total.toFixed(2)}</span>
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-800">
+                      <span className="text-base font-semibold text-gray-900 dark:text-white">Total</span>
+                      <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">${order.total.toFixed(2)}</span>
                     </div>
                   </>
                 ) : (
@@ -162,21 +162,21 @@ export default function CustomerOrders({ isFullPage = false }: CustomerOrdersPro
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-4">
-                          <Package className="h-5 w-5 text-gray-400" />
-                          <h3 className="text-lg font-semibold text-gray-900">{order.product}</h3>
+                          <Package className="h-5 w-5 text-gray-400 dark:text-gray-600" />
+                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{order.product}</h3>
                         </div>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                           <div>
-                            <p className="text-gray-600">Cantidad</p>
-                            <p className="font-semibold text-gray-900">{order.quantity}</p>
+                            <p className="text-gray-600 dark:text-gray-400">Cantidad</p>
+                            <p className="font-semibold text-gray-900 dark:text-white">{order.quantity}</p>
                           </div>
                           <div>
-                            <p className="text-gray-600">Total</p>
-                            <p className="font-semibold text-gray-900">${order.total.toFixed(2)}</p>
+                            <p className="text-gray-600 dark:text-gray-400">Total</p>
+                            <p className="font-semibold text-gray-900 dark:text-white">${order.total.toFixed(2)}</p>
                           </div>
                           <div className="col-span-2 md:col-span-2">
-                            <div className="flex items-center gap-1 text-gray-600">
+                            <div className="flex items-center gap-1 text-gray-600 dark:text-gray-400">
                               <Calendar className="h-4 w-4" />
                               <p>{new Date(order.date).toLocaleDateString('es-ES')}</p>
                             </div>
@@ -186,7 +186,7 @@ export default function CustomerOrders({ isFullPage = false }: CustomerOrdersPro
 
                       {order.status && (
                         <div className="ml-4">
-                          <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusColors[order.status as keyof typeof statusColors] || 'bg-gray-100 text-gray-700'}`}>
+                          <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusColors[order.status as keyof typeof statusColors] || 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'}`}>
                             {statusLabels[order.status as keyof typeof statusLabels] || order.status}
                           </span>
                         </div>
