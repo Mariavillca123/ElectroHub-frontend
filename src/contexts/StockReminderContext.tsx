@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 import { Bell } from 'lucide-react';
 
 export interface StockReminder {
@@ -83,7 +83,7 @@ export function StockReminderProvider({ children }: { children: ReactNode }) {
     [reminders, saveReminders]
   );
 
-  const showNotification = (message: string) => {
+  const showNotification = () => {
     const id = Math.random().toString();
     setNotifications((prev) => [...prev, id]);
     setTimeout(() => {

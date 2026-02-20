@@ -95,7 +95,7 @@ const mockCoupons: Coupon[] = [
 
 export default function CouponsPage() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+  const [selectedFilter, setSelectedFilter] = useState('all');
 
   const copyCode = (code: string, id: string) => {
     navigator.clipboard.writeText(code);
