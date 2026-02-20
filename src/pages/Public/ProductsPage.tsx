@@ -50,34 +50,35 @@ export default function ProductsPage() {
   }
 
   return (
-    <div>
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Productos Disponibles</h1>
-        <p className="text-gray-600">Descubre nuestro catálogo de componentes electrónicos</p>
-      </div>
-
-      {/* Search Bar */}
-      <div className="mb-8">
-        <div className="relative">
-          <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Buscar productos..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-          />
+    <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Productos Disponibles</h1>
+          <p className="text-sm sm:text-base text-gray-600">Descubre nuestro catálogo de componentes electrónicos</p>
         </div>
-      </div>
 
-      {/* Category Filter */}
-      <div className="mb-8">
-        <div className="flex gap-2 flex-wrap">
+        {/* Search Bar */}
+        <div className="mb-6 sm:mb-8">
+          <div className="relative">
+            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Buscar productos..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base"
+            />
+          </div>
+        </div>
+
+        {/* Category Filter */}
+        <div className="mb-6 sm:mb-8">
+          <div className="flex gap-2 flex-wrap">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
                 selectedCategory === cat
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-900 hover:bg-gray-300"
@@ -92,18 +93,19 @@ export default function ProductsPage() {
       {/* Products Grid */}
       {filteredProducts.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-600">No se encontraron productos</p>
+          <p className="text-sm sm:text-base text-gray-600">No se encontraron productos</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           {filteredProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
       )}
 
-      <div className="mt-8 text-center text-gray-600">
+      <div className="mt-8 text-center text-sm sm:text-base text-gray-600">
         Mostrando {filteredProducts.length} de {products.length} productos
+      </div>
       </div>
     </div>
   )

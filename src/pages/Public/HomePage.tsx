@@ -133,16 +133,16 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.1),transparent_50%)]" />
-        <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-32 relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm text-blue-600">
+            <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm text-blue-600">
               <Zap className="h-4 w-4" />
               <span>Tu ventaja electrónica</span>
             </div>
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-6xl">
+            <h1 className="mb-4 sm:mb-6 text-2xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-white">
               Componentes electrónicos de calidad para tus proyectos
             </h1>
-            <p className="mb-8 text-lg text-white/90">
+            <p className="mb-6 sm:mb-8 text-sm sm:text-base lg:text-lg text-white/90">
               Encuentra resistencias, capacitores, microcontroladores, sensores y todo lo que necesitas para dar vida a tus ideas. Precios competitivos y envío rápido.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -158,9 +158,9 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="border-b border-gray-200 bg-gray-50 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="border-b border-gray-200 bg-gray-50 py-8 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {features.map((feature) => {
               const Icon = feature.icon
               return (
@@ -180,13 +180,13 @@ export default function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="mb-10 text-center">
-            <h2 className="mb-3 text-3xl font-bold text-gray-900">Explora Nuestras Categorías</h2>
-            <p className="text-gray-600">Todo lo que necesitas para tus proyectos electrónicos</p>
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 sm:mb-10 text-center">
+            <h2 className="mb-2 sm:mb-3 text-2xl sm:text-3xl font-bold text-gray-900">Explora Nuestras Categorías</h2>
+            <p className="text-sm sm:text-base text-gray-600">Todo lo que necesitas para tus proyectos electrónicos</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {categories.map((category) => (
               <Link key={category.name} to={`/productos?category=${category.slug}`}>
                 <ElectroBorder
@@ -218,15 +218,15 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="border-t border-gray-200 bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="mb-10 flex items-center justify-between">
+      <section className="border-t border-gray-200 bg-gray-50 py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 sm:mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h2 className="mb-2 text-3xl font-bold text-gray-900">Productos Destacados</h2>
-              <p className="text-gray-600">Los más vendidos de nuestra tienda</p>
+              <h2 className="mb-1 sm:mb-2 text-2xl sm:text-3xl font-bold text-gray-900">Productos Destacados</h2>
+              <p className="text-sm sm:text-base text-gray-600">Los más vendidos de nuestra tienda</p>
             </div>
             <Link to="/productos" className="hidden sm:block">
-              <Button variant="outline" className="gap-2">
+              <Button variant="outline" className="gap-2 text-sm">
                 Ver todos
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -235,11 +235,11 @@ export default function HomePage() {
 
           {loading ? (
             <div className="flex items-center justify-center py-12">
-              <div className="text-gray-500">Cargando productos...</div>
+              <div className="text-sm sm:text-base text-gray-500">Cargando productos...</div>
             </div>
           ) : (
             <>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 {featuredProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
@@ -258,19 +258,19 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="rounded-2xl bg-blue-600 p-8 text-center md:p-12">
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-xl sm:rounded-2xl bg-blue-600 p-6 sm:p-8 lg:p-12 text-center">
             <div className="mx-auto max-w-2xl">
-              <TrendingUp className="mx-auto mb-4 h-12 w-12 text-white/80" />
-              <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl">
+              <TrendingUp className="mx-auto mb-3 sm:mb-4 h-10 sm:h-12 w-10 sm:w-12 text-white/80" />
+              <h2 className="mb-3 sm:mb-4 text-xl sm:text-2xl lg:text-3xl font-bold text-white">
                 ¿Eres vendedor de componentes?
               </h2>
-              <p className="mb-6 text-white/90">
+              <p className="mb-4 sm:mb-6 text-sm sm:text-base text-white/90">
                 Únete a nuestra plataforma y llega a miles de clientes. Gestiona tu inventario, ventas y reportes desde un solo lugar.
               </p>
               <Link to="/registro?role=vendedor">
-                <Button size="lg" className="gap-2 bg-white !text-gray-900 hover:bg-gray-100">
+                <Button size="lg" className="gap-2 bg-white !text-gray-900 hover:bg-gray-100 text-sm sm:text-base">
                   Regístrate como Vendedor
                   <ArrowRight className="h-4 w-4" />
                 </Button>
