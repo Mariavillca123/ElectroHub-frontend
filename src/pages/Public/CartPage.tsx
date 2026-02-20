@@ -149,16 +149,16 @@ export default function CartPage() {
                             aria-label="Aumentar"
                           >
                             <Plus className="h-4 w-4" />
+                          </button>
+                        </div>
+                        <button
+                          onClick={() => removeFromCart(item.id)}
+                          className="p-1.5 sm:p-2 text-red-500 hover:bg-red-50 rounded-lg transition"
+                          aria-label="Eliminar"
+                        >
+                          <Trash2 className="h-5 w-5" />
                         </button>
                       </div>
-                      <button
-                        onClick={() => removeFromCart(item.id)}
-                        className="p-1.5 sm:p-2 text-red-500 hover:bg-red-50 rounded-lg transition"
-                        aria-label="Eliminar"
-                      >
-                        <Trash2 className="h-5 w-5" />
-                      </button>
-                    </div>
                   ))}
                 </div>
               </div>
