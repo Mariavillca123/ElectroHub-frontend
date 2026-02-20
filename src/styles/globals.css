@@ -8,6 +8,15 @@ body {
   color: #111827;
 }
 
+html.dark body {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
   display: none;

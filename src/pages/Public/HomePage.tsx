@@ -123,12 +123,12 @@ export default function HomePage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section 
-        className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50"
+        className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
         style={{
           backgroundImage: `url(${fondoImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundAttachment: window.innerWidth > 768 ? 'fixed' : 'scroll'
         }}
       >
         <div className="absolute inset-0 bg-black/40" />
@@ -158,19 +158,19 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="border-b border-gray-200 bg-gray-50 py-8 sm:py-12">
+      <section className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 py-8 sm:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {features.map((feature) => {
               const Icon = feature.icon
               return (
                 <div key={feature.title} className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-100">
-                    <Icon className="h-6 w-6 text-blue-600" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900">
+                    <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">{feature.title}</h3>
-                    <p className="text-sm text-gray-600">{feature.description}</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white">{feature.title}</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{feature.description}</p>
                   </div>
                 </div>
               )
@@ -180,11 +180,11 @@ export default function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 sm:mb-10 text-center">
-            <h2 className="mb-2 sm:mb-3 text-2xl sm:text-3xl font-bold text-gray-900">Explora Nuestras Categorías</h2>
-            <p className="text-sm sm:text-base text-gray-600">Todo lo que necesitas para tus proyectos electrónicos</p>
+            <h2 className="mb-2 sm:mb-3 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Explora Nuestras Categorías</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Todo lo que necesitas para tus proyectos electrónicos</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {categories.map((category) => (
@@ -197,15 +197,15 @@ export default function HomePage() {
                   animationSpeed={0}
                   className="rounded-2xl"
                 >
-                  <Card className="group cursor-pointer overflow-hidden rounded-2xl bg-white/95 transition-all hover:-translate-y-1 hover:shadow-lg">
+                  <Card className="group cursor-pointer overflow-hidden rounded-2xl bg-white/95 dark:bg-gray-800/95 transition-all hover:-translate-y-1 hover:shadow-lg">
                     <CardContent className="p-6">
                       <div className="mb-4 text-4xl">
                         {category.icon}
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {category.name}
                       </h3>
-                      <p className="mt-1 text-sm text-gray-600">
+                      <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                         {category.description}
                       </p>
                     </CardContent>
@@ -218,12 +218,12 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="border-t border-gray-200 bg-gray-50 py-12 sm:py-16">
+      <section className="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 sm:mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h2 className="mb-1 sm:mb-2 text-2xl sm:text-3xl font-bold text-gray-900">Productos Destacados</h2>
-              <p className="text-sm sm:text-base text-gray-600">Los más vendidos de nuestra tienda</p>
+              <h2 className="mb-1 sm:mb-2 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Productos Destacados</h2>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Los más vendidos de nuestra tienda</p>
             </div>
             <Link to="/productos" className="hidden sm:block">
               <Button variant="outline" className="gap-2 text-sm">
@@ -235,7 +235,7 @@ export default function HomePage() {
 
           {loading ? (
             <div className="flex items-center justify-center py-12">
-              <div className="text-sm sm:text-base text-gray-500">Cargando productos...</div>
+              <div className="text-sm sm:text-base text-gray-500 dark:text-gray-400">Cargando productos...</div>
             </div>
           ) : (
             <>
@@ -258,9 +258,9 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-xl sm:rounded-2xl bg-blue-600 p-6 sm:p-8 lg:p-12 text-center">
+          <div className="rounded-xl sm:rounded-2xl bg-blue-600 dark:bg-blue-900 p-6 sm:p-8 lg:p-12 text-center">
             <div className="mx-auto max-w-2xl">
               <TrendingUp className="mx-auto mb-3 sm:mb-4 h-10 sm:h-12 w-10 sm:w-12 text-white/80" />
               <h2 className="mb-3 sm:mb-4 text-xl sm:text-2xl lg:text-3xl font-bold text-white">

@@ -51,8 +51,8 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <Card className="group overflow-hidden transition-all hover:shadow-lg">
-      <div className="relative aspect-square overflow-hidden bg-gray-100 flex items-center justify-center p-4">
+    <Card className="group overflow-hidden transition-all hover:shadow-lg bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800">
+      <div className="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-4">
         {product.image ? (
           <img 
             src={product.image} 
@@ -61,7 +61,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         ) : (
           <div className="flex h-full items-center justify-center">
-            <Package className="h-16 w-16 text-gray-400" />
+            <Package className="h-16 w-16 text-gray-400 dark:text-gray-600" />
           </div>
         )}
         {product.discount && (
@@ -75,27 +75,27 @@ export default function ProductCard({ product }: ProductCardProps) {
           </Badge>
         )}
         {product.stock === 0 && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white/80">
+          <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80">
             <Badge variant="destructive">Agotado</Badge>
           </div>
         )}
       </div>
       <CardContent>
-        <p className="text-xs text-gray-600">{product.category}</p>
-        <h3 className="mt-1 line-clamp-2 font-semibold text-gray-900">{product.name}</h3>
+        <p className="text-xs text-gray-600 dark:text-gray-400">{product.category}</p>
+        <h3 className="mt-1 line-clamp-2 font-semibold text-gray-900 dark:text-white">{product.name}</h3>
         <div className="mt-2 flex items-baseline gap-2">
           {discountedPrice !== null ? (
             <>
-              <span className="text-lg font-bold text-blue-600">${discountedPrice.toFixed(2)}</span>
-              <span className="text-sm text-gray-600 line-through">${price.toFixed(2)}</span>
+              <span className="text-lg font-bold text-blue-600 dark:text-blue-400">${discountedPrice.toFixed(2)}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400 line-through">${price.toFixed(2)}</span>
             </>
           ) : (
-            <span className="text-lg font-bold text-blue-600">${price.toFixed(2)}</span>
+            <span className="text-lg font-bold text-blue-600 dark:text-blue-400">${price.toFixed(2)}</span>
           )}
         </div>
-        <p className="mt-1 text-xs text-gray-600">Stock: {product.stock} unidades</p>
+        <p className="mt-1 text-xs text-gray-600 dark:text-gray-400">Stock: {product.stock} unidades</p>
         {product.vendor_name && (
-          <p className="mt-2 text-xs font-medium text-blue-600 border-t pt-2">
+          <p className="mt-2 text-xs font-medium text-blue-600 dark:text-blue-400 border-t border-gray-200 dark:border-gray-700 pt-2">
             Vendedor: <span className="font-semibold">{product.vendor_name}</span>
           </p>
         )}
