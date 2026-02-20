@@ -112,52 +112,52 @@ export default function VendorSalesPage() {
         <div className="flex-1 overflow-auto px-4 py-8 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900">Ventas</h1>
-            <p className="mt-2 text-gray-600">Ventas en tiempo real de tus productos</p>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Ventas</h1>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">Ventas en tiempo real de tus productos</p>
           </div>
 
           {/* Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Ingresos Totales</p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">${totalRevenue.toFixed(2)}</p>
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Ingresos Totales</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">${totalRevenue.toFixed(2)}</p>
                 </div>
-                <div className="rounded-lg bg-green-50 p-3">
-                  <DollarSign className="h-6 w-6 text-green-600" />
+                <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-3">
+                  <DollarSign className="h-6 w-6 text-green-600 dark:text-green-400" />
                 </div>
               </div>
             </div>
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Ventas</p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">{totalSales}</p>
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Total Ventas</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">{totalSales}</p>
                 </div>
-                <div className="rounded-lg bg-blue-50 p-3">
-                  <ShoppingCart className="h-6 w-6 text-blue-600" />
+                <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-3">
+                  <ShoppingCart className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 </div>
               </div>
             </div>
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Ticket Promedio</p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">${averageSale.toFixed(2)}</p>
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Ticket Promedio</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">${averageSale.toFixed(2)}</p>
                 </div>
-                <div className="rounded-lg bg-purple-50 p-3">
-                  <TrendingUp className="h-6 w-6 text-purple-600" />
+                <div className="rounded-lg bg-purple-50 dark:bg-purple-900/20 p-3">
+                  <TrendingUp className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                 </div>
               </div>
             </div>
           </div>
 
           {/* Line Chart */}
-          <div className="rounded-lg border border-gray-200 bg-white p-6 mb-8 shadow-sm">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Ingresos vs Tiempo</h2>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 mb-8 shadow-sm">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Ingresos vs Tiempo</h2>
             {chartData.length > 0 ? (
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={chartData}>
@@ -172,9 +172,10 @@ export default function VendorSalesPage() {
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#fff',
-                      border: '1px solid #E5E7EB',
-                      borderRadius: '0.5rem'
+                      backgroundColor: 'var(--tooltip-bg, #fff)',
+                      border: '1px solid var(--tooltip-border, #E5E7EB)',
+                      borderRadius: '0.5rem',
+                      color: 'var(--tooltip-text, #111827)'
                     }}
                     formatter={(value: number | undefined) => value ? `$${value.toFixed(2)}` : '$0.00'}
                   />
@@ -188,62 +189,62 @@ export default function VendorSalesPage() {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <div className="flex items-center justify-center h-[300px] text-gray-400">
+              <div className="flex items-center justify-center h-[300px] text-gray-400 dark:text-gray-500">
                 <p>Sin datos para mostrar</p>
               </div>
             )}
           </div>
 
           {/* Sales Table */}
-          <div className="rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden">
-            <div className="border-b border-gray-200 px-6 py-4">
-              <h2 className="text-lg font-semibold text-gray-900">Historial de Ventas</h2>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm overflow-hidden">
+            <div className="border-b border-gray-200 dark:border-gray-800 px-6 py-4">
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Historial de Ventas</h2>
             </div>
 
             {sales.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-12">
-                <ShoppingCart className="h-12 w-12 text-gray-400 mb-3" />
-                <p className="text-gray-600">No tienes ventas registradas</p>
+                <ShoppingCart className="h-12 w-12 text-gray-400 dark:text-gray-600 mb-3" />
+                <p className="text-gray-600 dark:text-gray-400">No tienes ventas registradas</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 border-b border-gray-200">
+                  <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Producto
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Cliente
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Cantidad
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Total
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Fecha
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
+                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                     {sales.map((sale) => (
-                      <tr key={sale.id} className="hover:bg-gray-50">
+                      <tr key={sale.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
-                            <div className="flex h-8 w-8 items-center justify-center rounded bg-blue-100">
-                              <Package className="h-4 w-4 text-blue-600" />
+                            <div className="flex h-8 w-8 items-center justify-center rounded bg-blue-100 dark:bg-blue-900/30">
+                              <Package className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                             </div>
-                            <span className="text-sm font-medium text-gray-900">{sale.product}</span>
+                            <span className="text-sm font-medium text-gray-900 dark:text-white">{sale.product}</span>
                           </div>
                         </td>
-                        <td className="px-6 py-4 text-sm text-gray-600">{sale.client}</td>
-                        <td className="px-6 py-4 text-sm text-gray-900 font-medium">{sale.quantity}</td>
-                        <td className="px-6 py-4 text-sm font-semibold text-gray-900">
+                        <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">{sale.client}</td>
+                        <td className="px-6 py-4 text-sm text-gray-900 dark:text-white font-medium">{sale.quantity}</td>
+                        <td className="px-6 py-4 text-sm font-semibold text-gray-900 dark:text-white">
                           ${Number(sale.total).toFixed(2)}
                         </td>
-                        <td className="px-6 py-4 text-sm text-gray-600">
+                        <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
                           {new Date(sale.created_at).toLocaleDateString('es-ES')}
                         </td>
                       </tr>

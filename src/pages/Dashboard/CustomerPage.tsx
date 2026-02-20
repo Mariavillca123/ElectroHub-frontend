@@ -115,24 +115,24 @@ export default function CustomerPage() {
             // Vista de Configuración
             <>
               <div className="space-y-2 mb-6">
-                <h1 className="text-3xl font-bold text-gray-900">Configuracion</h1>
-                <p className="text-gray-600">Informacion de tu cuenta</p>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Configuracion</h1>
+                <p className="text-gray-600 dark:text-gray-400">Informacion de tu cuenta</p>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm p-6">
                 <div className="mb-6">
-                  <h2 className="text-lg font-semibold text-gray-900">Perfil</h2>
-                  <p className="text-sm text-gray-500">Tu informacion personal</p>
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Perfil</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Tu informacion personal</p>
                 </div>
 
                 <div className="flex flex-col gap-6">
                   <div className="flex items-center gap-4">
-                    <div className="h-14 w-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold">
+                    <div className="h-14 w-14 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-2xl font-bold">
                       {user.name?.charAt(0).toUpperCase() || "C"}
                     </div>
                     <div>
-                      <p className="text-xl font-semibold text-gray-900">{user.name}</p>
-                      <p className="text-sm text-gray-600 capitalize">{user.role === "client" ? "Cliente" : user.role}</p>
+                      <p className="text-xl font-semibold text-gray-900 dark:text-white">{user.name}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">{user.role === "client" ? "Cliente" : user.role}</p>
                     </div>
                   </div>
 
@@ -172,62 +172,62 @@ export default function CustomerPage() {
             <>
               {/* Saludo */}
               <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">
-                  Hola, <span className="text-blue-600">{user?.name}</span>
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Hola, <span className="text-blue-600 dark:text-blue-400">{user?.name}</span>
                 </h1>
-                <p className="text-sm text-gray-600 mt-1">Bienvenido a tu panel de cliente.</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Bienvenido a tu panel de cliente.</p>
               </div>
 
               {/* Métricas */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 {/* Total Pedidos */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Total Pedidos</h3>
-                      <p className="text-2xl font-bold text-gray-900">{stats.totalOrders}</p>
+                      <h3 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Total Pedidos</h3>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.totalOrders}</p>
                     </div>
-                    <div className="bg-blue-100 p-2 rounded-lg flex-shrink-0">
-                      <ShoppingBag className="h-5 w-5 text-blue-600" />
+                    <div className="bg-blue-100 dark:bg-blue-900/30 p-2 rounded-lg flex-shrink-0">
+                      <ShoppingBag className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
                   </div>
                 </div>
 
                 {/* Pedidos Pendientes */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Pedidos Pendientes</h3>
-                      <p className="text-2xl font-bold text-gray-900">{stats.pendingOrders}</p>
+                      <h3 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Pedidos Pendientes</h3>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.pendingOrders}</p>
                     </div>
-                    <div className="bg-amber-100 p-2 rounded-lg flex-shrink-0">
-                      <Clock className="h-5 w-5 text-amber-600" />
+                    <div className="bg-amber-100 dark:bg-amber-900/30 p-2 rounded-lg flex-shrink-0">
+                      <Clock className="h-5 w-5 text-amber-600 dark:text-amber-400" />
                     </div>
                   </div>
                 </div>
 
                 {/* Cupones Activos */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Cupones Activos</h3>
-                      <p className="text-2xl font-bold text-gray-900">{stats.activeCoupons}</p>
+                      <h3 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Cupones Activos</h3>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white">{stats.activeCoupons}</p>
                     </div>
-                    <div className="bg-pink-100 p-2 rounded-lg flex-shrink-0">
-                      <Tag className="h-5 w-5 text-pink-600" />
+                    <div className="bg-pink-100 dark:bg-pink-900/30 p-2 rounded-lg flex-shrink-0">
+                      <Tag className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                     </div>
                   </div>
                 </div>
 
                 {/* Total Gastado */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Total Gastado</h3>
-                      <p className="text-2xl font-bold text-gray-900">${stats.totalSpent.toFixed(2)}</p>
+                      <h3 className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Total Gastado</h3>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white">${stats.totalSpent.toFixed(2)}</p>
                     </div>
-                    <div className="bg-green-100 p-2 rounded-lg flex-shrink-0">
-                      <DollarSign className="h-5 w-5 text-green-600" />
+                    <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg flex-shrink-0">
+                      <DollarSign className="h-5 w-5 text-green-600 dark:text-green-400" />
                     </div>
                   </div>
                 </div>
@@ -236,12 +236,12 @@ export default function CustomerPage() {
               {/* Pedidos Recientes y Productos Destacados */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Pedidos Recientes */}
-                <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-sm font-bold text-gray-900">Pedidos Recientes</h2>
+                    <h2 className="text-sm font-bold text-gray-900 dark:text-white">Pedidos Recientes</h2>
                     <button 
                       onClick={() => navigate('/cliente/pedidos')}
-                      className="text-blue-600 text-xs font-medium hover:text-blue-700 flex items-center gap-1"
+                      className="text-blue-600 dark:text-blue-400 text-xs font-medium hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1"
                     >
                       Ver todos <ArrowRight className="h-3 w-3" />
                     </button>
@@ -249,20 +249,20 @@ export default function CustomerPage() {
                   
                   {orders.length === 0 ? (
                     <div className="text-center py-6">
-                      <ShoppingBag className="h-10 w-10 text-gray-300 mx-auto mb-2" />
-                      <p className="text-sm text-gray-500">No hay pedidos aún</p>
+                      <ShoppingBag className="h-10 w-10 text-gray-300 dark:text-gray-600 mx-auto mb-2" />
+                      <p className="text-sm text-gray-500 dark:text-gray-400">No hay pedidos aún</p>
                     </div>
                   ) : (
                     <div className="space-y-2">
                       {orders.slice(0, 3).map((order) => (
-                        <div key={order.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50 text-sm">
+                        <div key={order.id} className="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 text-sm">
                           <div>
-                            <p className="font-semibold text-gray-900">#{order.id}</p>
-                            <p className="text-xs text-gray-500">{orders.length} producto{orders.length !== 1 ? 's' : ''}</p>
+                            <p className="font-semibold text-gray-900 dark:text-white">#{order.id}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">{orders.length} producto{orders.length !== 1 ? 's' : ''}</p>
                           </div>
                           <div className="text-right">
-                            <p className="font-semibold text-blue-600">${order.total.toFixed(2)}</p>
-                            <span className="inline-block text-xs px-2 py-1 rounded-full bg-green-100 text-green-700 mt-1">
+                            <p className="font-semibold text-blue-600 dark:text-blue-400">${order.total.toFixed(2)}</p>
+                            <span className="inline-block text-xs px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 mt-1">
                               {order.status}
                             </span>
                           </div>
@@ -273,28 +273,28 @@ export default function CustomerPage() {
                 </div>
 
                 {/* Productos Destacados */}
-                <div className="bg-white rounded-lg border border-gray-200 p-5">
+                <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-sm font-bold text-gray-900">Productos Destacados</h2>
-                    <Link to="/productos" className="text-blue-600 text-xs font-medium hover:text-blue-700 flex items-center gap-1">
+                    <h2 className="text-sm font-bold text-gray-900 dark:text-white">Productos Destacados</h2>
+                    <Link to="/productos" className="text-blue-600 dark:text-blue-400 text-xs font-medium hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1">
                       Ver catálogo <ArrowRight className="h-3 w-3" />
                     </Link>
                   </div>
                   
                   {products.length === 0 ? (
                     <div className="text-center py-6">
-                      <Package className="h-10 w-10 text-gray-300 mx-auto mb-2" />
-                      <p className="text-sm text-gray-500">No hay productos disponibles</p>
+                      <Package className="h-10 w-10 text-gray-300 dark:text-gray-600 mx-auto mb-2" />
+                      <p className="text-sm text-gray-500 dark:text-gray-400">No hay productos disponibles</p>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-3">
                       {products.map((product) => (
-                        <div key={product.id} className="border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
-                          <div className="bg-gray-100 rounded-lg p-2 mb-2 flex items-center justify-center h-16">
-                            <Zap className="h-6 w-6 text-gray-400" />
+                        <div key={product.id} className="border border-gray-200 dark:border-gray-700 rounded-lg p-3 hover:shadow-md transition-shadow bg-white dark:bg-gray-800/50">
+                          <div className="bg-gray-100 dark:bg-gray-700 rounded-lg p-2 mb-2 flex items-center justify-center h-16">
+                            <Zap className="h-6 w-6 text-gray-400 dark:text-gray-500" />
                           </div>
-                          <p className="text-xs font-medium text-gray-900 truncate">{product.name}</p>
-                          <p className="text-blue-600 font-semibold text-xs mt-1">${product.price.toFixed(2)}</p>
+                          <p className="text-xs font-medium text-gray-900 dark:text-white truncate">{product.name}</p>
+                          <p className="text-blue-600 dark:text-blue-400 font-semibold text-xs mt-1">${product.price.toFixed(2)}</p>
                         </div>
                       ))}
                     </div>

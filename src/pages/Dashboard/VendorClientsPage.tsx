@@ -101,28 +101,28 @@ export default function VendorClientsPage() {
       <main className="flex-1 flex flex-col overflow-hidden lg:ml-64">
         <div className="flex-1 overflow-auto px-4 py-8 lg:px-8">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900">Clientes</h1>
-            <p className="mt-2 text-gray-600">Todos los clientes registrados en la plataforma</p>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Clientes</h1>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">Todos los clientes registrados en la plataforma</p>
           </div>
 
-          <div className="rounded-lg border border-gray-200 bg-white shadow-sm overflow-hidden">
-            <div className="border-b border-gray-200 px-6 py-4">
-              <h2 className="text-lg font-semibold text-gray-900">Lista de Clientes ({clients.length})</h2>
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm overflow-hidden">
+            <div className="border-b border-gray-200 dark:border-gray-800 px-6 py-4">
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Lista de Clientes ({clients.length})</h2>
             </div>
 
             {clients.length === 0 ? (
-              <div className="py-12 text-center text-gray-600">No hay clientes registrados</div>
+              <div className="py-12 text-center text-gray-600 dark:text-gray-400">No hay clientes registrados</div>
             ) : (
-              <div className="divide-y divide-gray-200">
+              <div className="divide-y divide-gray-200 dark:divide-gray-800">
                 {clients.map((c) => (
-                  <div key={c.id} className="px-6 py-5 flex items-center justify-between">
+                  <div key={c.id} className="px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
                     <div className="flex items-center gap-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white font-semibold">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 dark:bg-blue-500 text-white font-semibold">
                         {c.name?.charAt(0).toUpperCase() || 'C'}
                       </div>
                       <div className="space-y-1">
-                        <p className="font-semibold text-gray-900">{c.name}</p>
-                        <div className="flex items-center gap-6 text-sm text-gray-600">
+                        <p className="font-semibold text-gray-900 dark:text-white">{c.name}</p>
+                        <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
                           <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> {c.email}</span>
                           <span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4" /> {new Date(c.created_at).toLocaleDateString('es-ES', { day:'2-digit', month:'short', year:'numeric' })}</span>
                         </div>

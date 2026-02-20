@@ -88,59 +88,59 @@ export default function VendorReportsPage() {
         <div className="flex-1 overflow-auto px-4 py-8 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900">Reportes</h1>
-            <p className="mt-2 text-gray-600">Genera y descarga reportes de tu negocio</p>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Reportes</h1>
+            <p className="mt-2 text-gray-600 dark:text-gray-400">Genera y descarga reportes de tu negocio</p>
           </div>
 
           {/* Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Ingresos</p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Ingresos</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
                     ${summary?.totalRevenue.toFixed(2) || '0.00'}
                   </p>
                 </div>
-                <div className="rounded-lg bg-green-50 p-3">
-                  <DollarSign className="h-6 w-6 text-green-600" />
+                <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-3">
+                  <DollarSign className="h-6 w-6 text-green-600 dark:text-green-400" />
                 </div>
               </div>
             </div>
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Ventas</p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Ventas</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
                     {summary?.totalSales || 0}
                   </p>
                 </div>
-                <div className="rounded-lg bg-blue-50 p-3">
-                  <TrendingUp className="h-6 w-6 text-blue-600" />
+                <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-3">
+                  <TrendingUp className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 </div>
               </div>
             </div>
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Productos</p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Productos</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">
                     {summary?.totalProducts || 0}
                   </p>
                 </div>
-                <div className="rounded-lg bg-purple-50 p-3">
-                  <Package className="h-6 w-6 text-purple-600" />
+                <div className="rounded-lg bg-purple-50 dark:bg-purple-900/20 p-3">
+                  <Package className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                 </div>
               </div>
             </div>
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Fecha</p>
-                  <p className="mt-2 text-lg font-bold text-gray-900">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Fecha</p>
+                  <p className="mt-2 text-lg font-bold text-gray-900 dark:text-white">
                     {summary?.currentDate || new Date().toLocaleDateString('es-ES', {
                       year: 'numeric',
                       month: 'long',
@@ -148,42 +148,42 @@ export default function VendorReportsPage() {
                     })}
                   </p>
                 </div>
-                <div className="rounded-lg bg-orange-50 p-3">
-                  <Calendar className="h-6 w-6 text-orange-600" />
+                <div className="rounded-lg bg-orange-50 dark:bg-orange-900/20 p-3">
+                  <Calendar className="h-6 w-6 text-orange-600 dark:text-orange-400" />
                 </div>
               </div>
             </div>
           </div>
 
           {/* Generate Report Section */}
-          <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+          <div className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-                <Download className="h-6 w-6 text-blue-600" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
+                <Download className="h-6 w-6 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-gray-900">Generar Reporte</h2>
-                <p className="text-sm text-gray-600">Descarga un reporte completo de tus ventas, productos e inventario</p>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Generar Reporte</h2>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Descarga un reporte completo de tus ventas, productos e inventario</p>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-4">El reporte incluye:</h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-6">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">El reporte incluye:</h3>
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li className="flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 bg-blue-600 rounded-full" />
+                  <span className="inline-block h-2 w-2 bg-blue-600 dark:bg-blue-500 rounded-full" />
                   Resumen ejecutivo de ingresos y ventas
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 bg-blue-600 rounded-full" />
+                  <span className="inline-block h-2 w-2 bg-blue-600 dark:bg-blue-500 rounded-full" />
                   Detalle completo de todas las transacciones
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 bg-blue-600 rounded-full" />
+                  <span className="inline-block h-2 w-2 bg-blue-600 dark:bg-blue-500 rounded-full" />
                   Lista de productos con información de inventario
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 bg-blue-600 rounded-full" />
+                  <span className="inline-block h-2 w-2 bg-blue-600 dark:bg-blue-500 rounded-full" />
                   Métricas de rendimiento del negocio
                 </li>
               </ul>
@@ -198,7 +198,7 @@ export default function VendorReportsPage() {
               {downloading ? 'Descargando...' : 'Descargar Reporte PDF'}
             </Button>
 
-            <p className="mt-4 text-xs text-gray-500">
+            <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">
               El reporte se generará en formato PDF con los datos actuales de tu negocio.
               Todos los montos están en dólares.
             </p>
