@@ -33,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   // Normaliza valores que pueden venir como string desde la API
   const price = Number(product.price) || 0
-  const discount = product.discount ? Number(product.discount) || 0 : 0
+  const discount = product.discount && Number(product.discount) > 0 ? Number(product.discount) : 0
   const discountedPrice = discount > 0 ? price * (1 - discount / 100) : null
   const stockPercentage = (product.stock / 100) * 100 // Asume max 100 unidades
 
@@ -116,9 +116,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Badges */}
         <div className="absolute top-2 left-2 right-2 flex justify-between items-start gap-2">
           <div className="flex gap-2 flex-wrap">
-            {product.discount && (
+            {discount > 0 && (
               <Badge variant="destructive" className="bg-red-500 hover:bg-red-600">
-                -{product.discount}%
+                -{discount}%
               </Badge>
             )}
             {product.stock <= 5 && product.stock > 0 && (
