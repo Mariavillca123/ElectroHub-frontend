@@ -26,8 +26,9 @@ export default function CartPage() {
 
   // Cupones sugeridos
   const suggestedCoupons = [
-    { code: 'DESC10', discount: 10, description: '10% off' },
-    { code: 'DESC20', discount: 20, description: '20% off' }
+    { code: 'MAKER15', discount: 15, description: '15% off' },
+    { code: 'ELECTRONICA20', discount: 20, description: '20% off' },
+    { code: 'DESCUENTO50', discount: 50, description: '50% off' }
   ]
 
   const applyCoupon = (code?: string) => {
