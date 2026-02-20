@@ -85,7 +85,7 @@ export default function RecommendationsSection({
         <div className="flex justify-center">
           <a
             href="/productos"
-            className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-background dark:bg-gray-900 px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary transition-all group"
+            className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-background dark:bg-gray-900 px-6 py-3 font-semibold text-primary hover:shadow-lg hover:shadow-primary/30 dark:hover:shadow-primary/20 hover:border-primary/80 transition-all group"
           >
             Ver todos los productos
             <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
