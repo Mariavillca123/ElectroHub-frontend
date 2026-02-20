@@ -6,6 +6,7 @@ import "./styles/globals.css";
 import { CartProvider } from "./contexts/CartContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { StockReminderProvider } from "./contexts/StockReminderContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <AuthProvider>
           <CartProvider>
-            <App />
+            <StockReminderProvider>
+              <App />
+            </StockReminderProvider>
           </CartProvider>
         </AuthProvider>
       </BrowserRouter>

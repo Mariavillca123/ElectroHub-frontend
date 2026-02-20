@@ -1,8 +1,9 @@
 import { useCart } from "../../contexts/CartContext"
+import { useStockReminder } from "../../contexts/StockReminderContext"
 import { Card, CardContent, CardFooter } from "./card"
 import { Button } from "./Button"
 import { Badge } from "./Badge"
-import { ShoppingCart, Package, Check, Heart, Share2 } from "lucide-react"
+import { ShoppingCart, Package, Check, Heart, Share2, Bell } from "lucide-react"
 import { useState } from "react"
 
 interface Product {
@@ -23,10 +24,12 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart()
+  const { addReminder, hasReminder, removeReminder } = useStockReminder()
   const [isAdding, setIsAdding] = useState(false)
   const [addedSuccess, setAddedSuccess] = useState(false)
   const [isFavorited, setIsFavorited] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [reminderActive, setReminderActive] = useState(() => hasReminder(product.id))
 
   // Normaliza valores que pueden venir como string desde la API
   const price = Number(product.price) || 0
@@ -72,6 +75,18 @@ export default function ProductCard({ product }: ProductCardProps) {
   const handleFavorite = () => {
     setIsFavorited(!isFavorited)
     // Aquí puedes agregar lógica para guardar favoritos
+  }
+
+  const handleStockReminder = () => {
+    if (reminderActive) {
+      removeReminder(product.id)
+      setReminderActive(false)
+    } else {
+      // Usar email del usuario o un valor por defecto
+      const userEmail = localStorage.getItem('userEmail') || 'user@electromart.com'
+      addReminder(product.id, product.name, userEmail)
+      setReminderActive(true)
+    }
   }
 
   return (
@@ -220,39 +235,48 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       {/* Footer */}
       <CardFooter>
-        <Button 
-          className={`w-full transition-all duration-300 ${
-            addedSuccess 
-              ? "bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600" 
-              : isAdding 
-              ? "opacity-75 scale-95" 
-              : ""
-          }`}
-          onClick={handleAddToCart} 
-          disabled={product.stock === 0 || addedSuccess}
-        >
-          {addedSuccess ? (
-            <>
-              <Check className="mr-2 h-4 w-4 animate-pulse" />
-              <span className="animate-bounce">¡Agregado!</span>
-            </>
-          ) : isAdding ? (
-            <>
-              <div className="mr-2 h-4 w-4 animate-spin border-2 border-white border-t-transparent rounded-full" />
-              Agregando...
-            </>
-          ) : product.stock === 0 ? (
-            <>
-              <ShoppingCart className="mr-2 h-4 w-4" />
-              Sin stock
-            </>
-          ) : (
-            <>
-              <ShoppingCart className="mr-2 h-4 w-4" />
-              Agregar al carrito
-            </>
-          )}
-        </Button>
+        {product.stock === 0 ? (
+          <Button 
+            className={`w-full transition-all duration-300 ${
+              reminderActive 
+                ? "bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600" 
+                : "bg-gray-600 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+            }`}
+            onClick={handleStockReminder}
+          >
+            <Bell className={`mr-2 h-4 w-4 ${reminderActive ? 'animate-pulse' : ''}`} />
+            {reminderActive ? 'Recordatorio activo' : 'Notificarme'}
+          </Button>
+        ) : (
+          <Button 
+            className={`w-full transition-all duration-300 ${
+              addedSuccess 
+                ? "bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600" 
+                : isAdding 
+                ? "opacity-75 scale-95" 
+                : ""
+            }`}
+            onClick={handleAddToCart} 
+            disabled={addedSuccess}
+          >
+            {addedSuccess ? (
+              <>
+                <Check className="mr-2 h-4 w-4 animate-pulse" />
+                <span className="animate-bounce">¡Agregado!</span>
+              </>
+            ) : isAdding ? (
+              <>
+                <div className="mr-2 h-4 w-4 animate-spin border-2 border-white border-t-transparent rounded-full" />
+                Agregando...
+              </>
+            ) : (
+              <>
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                Agregar al carrito
+              </>
+            )}
+          </Button>
+        )}
       </CardFooter>
     </Card>
   )

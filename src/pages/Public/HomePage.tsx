@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "../../utils/axios"
 import ProductCard from "../../components/ui/ProductCard"
+import RecommendationsSection from "../../components/ui/RecommendationsSection"
 import { Card, CardContent } from "../../components/ui/card"
 import { Button } from "../../components/ui/Button"
 import ElectroBorder from "../../components/ui/ElectroBorder"
@@ -256,6 +257,13 @@ export default function HomePage() {
           )}
         </div>
       </section>
+
+      {/* Recommendations Section */}
+      <RecommendationsSection 
+        title="Quizá te interese"
+        subtitle="Productos populares seleccionados especialmente para ti"
+        limit={4}
+      />
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
